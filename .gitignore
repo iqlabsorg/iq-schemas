@@ -1,0 +1,8 @@
+/node_modules
+
+# Editor Configs
+.idea
+.vscode
+
+# File system
+**/.DS_Store

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IQ Enterprise",
+  "type": "object",
+  "required": [ "connectors" ],
+  "properties": {
+    "connectors": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z]+$": {"$ref": "#/$defs/connector"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "connector": {
+      "type": "object",
+      "required": [ "url" ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "url",
+          "description": "The connector entrypoint URL."
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
