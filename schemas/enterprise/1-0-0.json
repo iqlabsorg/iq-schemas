@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/iqlabsorg/iq-schemas/main/schemas/enterprise/1-0-0.json",
   "title": "IQ Enterprise",
   "type": "object",
   "required": [ "connectors" ],

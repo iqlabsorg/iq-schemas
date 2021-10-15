@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/iqlabsorg/iq-schemas/main/schemas/connectors/iq-space/1-0-0.json",
   "title": "IQ Space Connector",
   "type": "object",
   "required": [
