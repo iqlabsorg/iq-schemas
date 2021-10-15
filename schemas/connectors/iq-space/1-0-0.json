@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IQ Space Connector",
+  "type": "object",
+  "required": [
+    "blockchains"
+  ],
+  "properties": {
+    "blockchains": {
+      "type": "object",
+      "patternProperties": {
+        "^[-a-z0-9]{3,8}:[-a-zA-Z0-9]{1,32}$": {
+          "$comment": "The key is chain ID (CAIP-2)",
+          "$ref": "#/$defs/blockchain"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "blockchain": {
+      "type": "object",
+      "required": [
+        "services"
+      ],
+      "properties": {
+        "services": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9]{1,64}$": {
+              "$comment": "The key is account address (CAIP-10 reference)",
+              "$ref": "#/$defs/service"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "service": {
+      "type": "object",
+      "required": [
+        "price",
+        "unit"
+      ],
+      "properties": {
+        "price": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "description": "The price of one unit of service in corresponding power tokens."
+        },
+        "unit": {
+          "type": "object",
+          "required": [
+            "name",
+            "decimals"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "decimals": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
