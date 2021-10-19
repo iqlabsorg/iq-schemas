@@ -20,7 +20,8 @@
       "properties": {
         "url": {
           "type": "string",
-          "format": "url",
+          "format": "uri",
+          "pattern": "^https://",
           "description": "The connector entrypoint URL."
         }
       },
