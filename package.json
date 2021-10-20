@@ -1,0 +1,48 @@
+{
+  "name": "@iqprotocol/schemas",
+  "version": "1.0.0",
+  "description": "JSON schemas for IQ Protocol services interoperability",
+  "repository": "git@github.com:iqlabsorg/iq-schemas.git",
+  "author": "IQ Labs (https://iqlabs.org)",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.d.ts",
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "prepublish": "yarn build",
+    "test": "jest",
+    "lint": "eslint \"**/*.ts\"",
+    "lint:fix": "yarn lint --fix"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@types/isomorphic-fetch": "^0.0.35",
+    "@types/jest": "^27.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.3.0",
+    "prettier": "^2.4.1",
+    "rollup": "^2.58.0",
+    "rollup-plugin-auto-external": "^2.0.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-ts": "^1.4.7",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "ajv": "^8.6.3",
+    "ajv-formats": "^2.1.1",
+    "isomorphic-fetch": "^3.0.0"
+  }
+}
