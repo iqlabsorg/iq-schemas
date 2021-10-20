@@ -8,7 +8,7 @@
     "connectors": {
       "type": "object",
       "patternProperties": {
-        "^[a-z]+$": {"$ref": "#/$defs/connector"}
+        "^[a-z]+[a-z0-9-]*$": {"$ref": "#/$defs/connector"}
       },
       "additionalProperties": false
     }
