@@ -2,7 +2,7 @@
 import pkg from './package.json';
 import ts from 'rollup-plugin-ts';
 import del from 'rollup-plugin-delete';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import autoExternal from 'rollup-plugin-auto-external';
 import copy from 'rollup-plugin-copy';
@@ -13,17 +13,19 @@ export default {
     {
       file: pkg.module,
       format: 'esm',
+      exports: 'named',
       sourcemap: true,
     },
     {
       file: pkg.main,
       format: 'cjs',
+      exports: 'named',
       sourcemap: true,
     },
   ],
   plugins: [
     del({ targets: 'dist/*' }),
-    nodeResolve(),
+    resolve(),
     commonjs(),
     copy({
       targets: [{ src: 'schemas', dest: 'dist/schemas' }],
