@@ -4,40 +4,21 @@
   "title": "IQ Space Connector",
   "type": "object",
   "required": [
-    "blockchains"
+    "services"
   ],
   "properties": {
-    "blockchains": {
+    "services": {
       "type": "object",
       "patternProperties": {
-        "^[-a-z0-9]{3,8}:[-a-zA-Z0-9]{1,32}$": {
-          "$comment": "The key is chain ID (CAIP-2)",
-          "$ref": "#/$defs/blockchain"
+        "^[-a-z0-9]{3,8}:[-a-zA-Z0-9]{1,32}:[a-zA-Z0-9]{1,64}$": {
+          "$comment": "The key is account ID (CAIP-10)",
+          "$ref": "#/$defs/service"
         }
       },
       "additionalProperties": false
     }
   },
   "$defs": {
-    "blockchain": {
-      "type": "object",
-      "required": [
-        "services"
-      ],
-      "properties": {
-        "services": {
-          "type": "object",
-          "patternProperties": {
-            "^[a-zA-Z0-9]{1,64}$": {
-              "$comment": "The key is account address (CAIP-10 reference)",
-              "$ref": "#/$defs/service"
-            }
-          },
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": false
-    },
     "service": {
       "type": "object",
       "required": [
@@ -46,8 +27,8 @@
       ],
       "properties": {
         "price": {
-          "type": "integer",
-          "exclusiveMinimum": 0,
+          "type": "string",
+          "pattern": "^[0-9]{1,78}$",
           "description": "The price of one unit of service in corresponding power tokens."
         },
         "unit": {
